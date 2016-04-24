@@ -4,8 +4,7 @@
   "description": "Brainstorm 10 ideas every day and quickly become an idea generation machine",
   "main": "index.js",
   "scripts": {
-    "test": "istanbul cover ./node_modules/.bin/_mocha -- --compilers js:babel-core/register --require ./test/test_helper.js --recursive",
-    "test-watch": "npm run test -- --watch"
+    "test": "istanbul cover ./node_modules/.bin/_mocha -- --compilers js:babel-core/register --require ./test/test_helper.js --recursive"
   },
   "repository": {
     "type": "git",
