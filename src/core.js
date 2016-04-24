@@ -42,9 +42,20 @@ export function addDate(state) {
 }
 
 export function addIdea(state, date, idea) {
-  let indexOfDate = state.get('dates').findIndex((obj) => { return obj.get('date') === date } );
+  // Get index of chosen date
+  let indexOfDate = state.get('dates').findIndex((obj) => { return obj.get('date') === date });
+  // Add idea to chosen date
   return state.updateIn(
     ['dates', indexOfDate, 'ideas'],
     ideas => ideas.concat(idea)
-  )
+  );
+}
+
+export function removeIdea(state, date, indexOfIdea) {
+  // Get index of chosen date
+  let indexOfDate = state.get('dates').findIndex((obj) => { return obj.get('date') === date });
+  // Remove idea from chosen date
+  return state.deleteIn(
+    ['dates', indexOfDate, 'ideas', indexOfIdea]
+  );
 }

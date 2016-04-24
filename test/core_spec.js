@@ -3,7 +3,7 @@
 import {fromJS} from 'immutable';
 import {expect} from 'chai';
 
-import {addDate, addIdea} from '../src/core';
+import {addDate, addIdea, removeIdea} from '../src/core';
 
 describe('core application logic', () => {
 
@@ -108,6 +108,37 @@ describe('core application logic', () => {
           {
             date: '03-18-2016',
             ideas: ['Test idea','Test idea','Test idea','Added Idea']
+          }
+        ]
+      })));
+    });
+  });
+
+  describe('removeIdea', () => {
+
+    it('removes idea from state', () => {
+      const state = fromJS({
+        dates: [
+          {
+            date: '01-21-2016',
+            ideas: ['Test idea','Test idea']
+          },
+          {
+            date: '03-18-2016',
+            ideas: ['Test idea 1','Test idea 2','Test idea 3']
+          }
+        ]
+      });
+      const nextState = removeIdea(state, '03-18-2016', 1);
+      expect(JSON.stringify(nextState)).to.equal(JSON.stringify(fromJS({
+        dates: [
+          {
+            date: '01-21-2016',
+            ideas: ['Test idea','Test idea']
+          },
+          {
+            date: '03-18-2016',
+            ideas: ['Test idea 1','Test idea 3']
           }
         ]
       })));
