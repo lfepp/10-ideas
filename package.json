@@ -20,7 +20,8 @@
   },
   "homepage": "https://github.com/lfepp/10-ideas#readme",
   "dependencies": {
-    "immutable": "3.8.1"
+    "immutable": "3.8.1",
+    "redux": "3.5.2"
   },
   "devDependencies": {
     "babel-cli": "6.7.7",
