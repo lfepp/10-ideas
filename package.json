@@ -4,7 +4,9 @@
   "description": "Brainstorm 10 ideas every day and quickly become an idea generation machine",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- --compilers js:babel-core/register --require ./test/test_helper.js --recursive"
+    "start": "babel-node index.js",
+    "test": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- --compilers js:babel-core/register --require ./test/test_helper.js --recursive",
+    "test-watch": "npm run test -- --watch"
   },
   "repository": {
     "type": "git",
@@ -21,7 +23,8 @@
   "homepage": "https://github.com/lfepp/10-ideas#readme",
   "dependencies": {
     "immutable": "3.8.1",
-    "redux": "3.5.2"
+    "redux": "3.5.2",
+    "socket.io": "1.4.5"
   },
   "devDependencies": {
     "babel-cli": "6.7.7",
