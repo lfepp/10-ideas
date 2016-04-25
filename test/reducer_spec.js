@@ -8,6 +8,22 @@ import reducer from '../src/reducer';
 
 describe('reducer', () => {
 
+  describe('INITIAL_STATE', () => {
+
+    it('ensures there is an initial state', () => {
+      const action = { type: 'ADD_DATE' };
+      const nextState = reducer(undefined, action);
+      expect(JSON.stringify(nextState)).to.equal(JSON.stringify(fromJS({
+        dates: [
+          {
+            date: getCurrentDate(),
+            ideas: []
+          }
+        ]
+      })));
+    });
+  });
+
   describe('ADD_DATE', () => {
 
     it('handles the ADD_DATE action', () => {

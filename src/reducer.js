@@ -1,8 +1,8 @@
 'use strict';
 
-import {addDate, addIdea, removeIdea, updateIdea} from './core';
+import {INITIAL_STATE, addDate, addIdea, removeIdea, updateIdea} from './core';
 
-export default function reducer(state, action) {
+export default function reducer(state = INITIAL_STATE, action) {
   // Use action to determine proper function and call function
   switch(action.type) {
     case 'ADD_DATE':
