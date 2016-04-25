@@ -59,3 +59,13 @@ export function removeIdea(state, date, indexOfIdea) {
     ['dates', indexOfDate, 'ideas', indexOfIdea]
   );
 }
+
+export function updateIdea(state, date, indexOfIdea, newIdea) {
+  // Get index of chosen date
+  let indexOfDate = state.get('dates').findIndex((obj) => { return obj.get('date') === date });
+  // Update idea on chosen date to newIdea
+  return state.setIn(
+    ['dates', indexOfDate, 'ideas', indexOfIdea],
+    newIdea
+  )
+}
