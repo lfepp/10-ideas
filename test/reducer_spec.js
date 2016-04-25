@@ -136,4 +136,35 @@ describe('reducer', () => {
       })));
     });
   });
+
+  describe('reduce', () => {
+
+    it('ensures the reducer can be used with reduce', () => {
+      const actions = [
+        { type: 'ADD_DATE' },
+        { type: 'ADD_IDEA', date: getCurrentDate(), idea: 'Test idea 1' },
+        { type: 'ADD_IDEA', date: getCurrentDate(), idea: 'Test idea 2' },
+        { type: 'ADD_IDEA', date: getCurrentDate(), idea: 'Test idea 3' },
+        { type: 'ADD_IDEA', date: getCurrentDate(), idea: 'Test idea 4' },
+        { type: 'ADD_IDEA', date: getCurrentDate(), idea: 'Test idea 5' },
+        { type: 'ADD_IDEA', date: getCurrentDate(), idea: 'Test idea 6' },
+        { type: 'ADD_IDEA', date: getCurrentDate(), idea: 'Test idea 7' },
+        { type: 'ADD_IDEA', date: getCurrentDate(), idea: 'Test idea 8' },
+        { type: 'ADD_IDEA', date: getCurrentDate(), idea: 'Test idea 9' },
+        { type: 'ADD_IDEA', date: getCurrentDate(), idea: 'Test idea 10' },
+        { type: 'REMOVE_IDEA', date: '03-18-2016', indexOfIdea: 3 },
+        { type: 'ADD_IDEA', date: getCurrentDate(), idea: 'Test idea 11' },
+        { type: 'UPDATE_IDEA', date: '03-18-2016', indexOfIdea: 6, newIdea: 'Updated idea' }
+      ];
+      const finalState = actions.reduce(reducer, fromJS({}));
+      expect(JSON.stringify(finalState)).to.equal(JSON.stringify(fromJS({
+        dates: [
+          {
+            date: getCurrentDate(),
+            ideas: ['Test idea 1','Test idea 2','Test idea 3','Test idea 5','Test idea 6','Test idea 7','Updated idea','Test idea 9','Test idea 10','Test idea 11']
+          }
+        ]
+      })));
+    });
+  });
 });

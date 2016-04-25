@@ -2,7 +2,7 @@
 
 import {fromJS} from 'immutable';
 
-export const INITIAL_STATE = fromJS({ dates: [] });
+export const INITIAL_STATE = fromJS({});
 
 export function getCurrentDate() {
   // Find current date in mm-dd-yyyy format
