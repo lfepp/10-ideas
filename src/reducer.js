@@ -23,7 +23,11 @@ export default function reducer(state = INITIAL_STATE, action) {
         ideaState => removeIdea(ideaState, action.indexOfIdea)
       );
     case 'UPDATE_IDEA':
-      return updateIdea(state, action.date, action.indexOfIdea, action.newIdea);
+      return state.updateIn(
+        ['dates', indexOfDate, 'ideas'],
+        ideaState => updateIdea(ideaState, action.indexOfIdea, action.newIdea)
+      );
+      // return updateIdea(state, action.date, action.indexOfIdea, action.newIdea);
   }
   return state;
 }

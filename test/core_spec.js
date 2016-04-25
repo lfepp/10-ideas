@@ -94,31 +94,9 @@ describe('core application logic', () => {
   describe('updateIdea', () => {
 
     it('updates an idea within state', () => {
-      const state = fromJS({
-        dates: [
-          {
-            date: '01-21-2016',
-            ideas: ['Test idea','Test idea']
-          },
-          {
-            date: '03-18-2016',
-            ideas: ['Test idea 1','Test idea 2','Test idea 3']
-          }
-        ]
-      });
-      const nextState = updateIdea(state, '03-18-2016', 1, 'Test idea 4');
-      expect(JSON.stringify(nextState)).to.equal(JSON.stringify(fromJS({
-        dates: [
-          {
-            date: '01-21-2016',
-            ideas: ['Test idea','Test idea']
-          },
-          {
-            date: '03-18-2016',
-            ideas: ['Test idea 1','Test idea 4','Test idea 3']
-          }
-        ]
-      })));
+      const state = fromJS(['Test idea 1','Test idea 2','Test idea 3']);
+      const nextState = updateIdea(state, 1, 'Test idea 4');
+      expect(JSON.stringify(nextState)).to.equal(JSON.stringify(fromJS(['Test idea 1','Test idea 4','Test idea 3'])));
     });
   });
 });
