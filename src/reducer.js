@@ -8,7 +8,12 @@ export default function reducer(state = INITIAL_STATE, action) {
     case 'ADD_DATE':
       return addDate(state);
     case 'ADD_IDEA':
-      return addIdea(state, action.date, action.idea);
+      const indexOfDate = state.get('dates').findIndex((obj) => { return obj.get('date') === action.date });
+      return state.updateIn(
+        ['dates', indexOfDate],
+        dateState => addIdea(dateState, action.idea)
+      );
+        //addIdea(state, action.date, action.idea);
     case 'REMOVE_IDEA':
       return removeIdea(state, action.date, action.indexOfIdea);
     case 'UPDATE_IDEA':

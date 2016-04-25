@@ -47,12 +47,8 @@ export function addDate(state) {
   }
 }
 
-export function addIdea(state, date, idea) {
-  // Get index of chosen date
-  const indexOfDate = state.get('dates').findIndex((obj) => { return obj.get('date') === date });
-  // Add idea to chosen date
-  return state.updateIn(
-    ['dates', indexOfDate, 'ideas'],
+export function addIdea(dateState, idea) {
+  return dateState.update('ideas',
     ideas => ideas.concat(idea)
   );
 }

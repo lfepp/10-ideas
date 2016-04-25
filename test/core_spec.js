@@ -59,57 +59,25 @@ describe('core application logic', () => {
 
     it('adds an idea to a blank list', () => {
       const state = fromJS({
-        dates: [
-          {
-            date: '01-21-2016',
-            ideas: ['Test idea','Test idea']
-          },
-          {
-            date: '03-18-2016',
-            ideas: []
-          }
-        ]
+        date: '03-18-2016',
+        ideas: []
       });
-      const nextState = addIdea(state, '03-18-2016', 'Added Idea');
+      const nextState = addIdea(state, 'Added Idea');
       expect(JSON.stringify(nextState)).to.equal(JSON.stringify(fromJS({
-        dates: [
-          {
-            date: '01-21-2016',
-            ideas: ['Test idea','Test idea']
-          },
-          {
-            date: '03-18-2016',
-            ideas: ['Added Idea']
-          }
-        ]
+        date: '03-18-2016',
+        ideas: ['Added Idea']
       })));
     });
 
     it('adds an idea to a populated list', () => {
       const state = fromJS({
-        dates: [
-          {
-            date: '01-21-2016',
-            ideas: ['Test idea','Test idea']
-          },
-          {
-            date: '03-18-2016',
-            ideas: ['Test idea','Test idea','Test idea']
-          }
-        ]
+        date: '03-18-2016',
+        ideas: ['Test idea','Test idea','Test idea']
       });
-      const nextState = addIdea(state, '03-18-2016', 'Added Idea');
+      const nextState = addIdea(state, 'Added Idea');
       expect(JSON.stringify(nextState)).to.equal(JSON.stringify(fromJS({
-        dates: [
-          {
-            date: '01-21-2016',
-            ideas: ['Test idea','Test idea']
-          },
-          {
-            date: '03-18-2016',
-            ideas: ['Test idea','Test idea','Test idea','Added Idea']
-          }
-        ]
+        date: '03-18-2016',
+        ideas: ['Test idea','Test idea','Test idea','Added Idea']
       })));
     });
   });
