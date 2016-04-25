@@ -3,7 +3,7 @@
 import {fromJS} from 'immutable';
 import {expect} from 'chai';
 
-import {addDate, addIdea, removeIdea, updateIdea} from '../src/core';
+import {getCurrentDate, addDate, addIdea, removeIdea, updateIdea} from '../src/core';
 
 describe('core application logic', () => {
 
@@ -15,7 +15,7 @@ describe('core application logic', () => {
       expect(JSON.stringify(nextState)).to.equal(JSON.stringify(fromJS({
         dates: [
           {
-            date: getDate(),
+            date: getCurrentDate(),
             ideas: []
           }
         ]
@@ -47,7 +47,7 @@ describe('core application logic', () => {
             ideas: ['Test idea','Test idea','Test idea']
           },
           {
-            date: getDate(),
+            date: getCurrentDate(),
             ideas: []
           }
         ]
@@ -176,17 +176,3 @@ describe('core application logic', () => {
     });
   });
 });
-
-function getDate() {
-  var currentDate = new Date();
-  var day = currentDate.getDate();
-  var month = currentDate.getMonth() + 1;
-  var year = currentDate.getFullYear();
-  if(day < 10) {
-    day = '0' + day;
-  }
-  if(month < 10) {
-    month = '0' + month;
-  }
-  return month + '-' + day + '-' + year;
-}
