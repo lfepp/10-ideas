@@ -3,8 +3,8 @@
 import {fromJS} from 'immutable';
 import {expect} from 'chai';
 
-import {getCurrentDate} from '../src/core';
-import reducer from '../src/reducer';
+import {getCurrentDate} from '../app/src/core';
+import reducer from '../app/src/reducer';
 
 describe('reducer', () => {
 

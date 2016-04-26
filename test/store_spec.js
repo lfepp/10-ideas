@@ -1,8 +1,8 @@
 import {fromJS} from 'immutable';
 import {expect} from 'chai';
 
-import {getCurrentDate} from '../src/core';
-import makeStore from '../src/store';
+import {getCurrentDate} from '../app/src/core';
+import makeStore from '../app/src/store';
 
 describe('store logic', () => {
 

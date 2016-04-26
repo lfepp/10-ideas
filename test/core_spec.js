@@ -3,7 +3,7 @@
 import {fromJS} from 'immutable';
 import {expect} from 'chai';
 
-import {getCurrentDate, addDate, addIdea, removeIdea, updateIdea} from '../src/core';
+import {getCurrentDate, addDate, addIdea, removeIdea, updateIdea} from '../app/src/core';
 
 describe('core application logic', () => {
 
