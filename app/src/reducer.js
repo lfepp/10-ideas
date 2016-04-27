@@ -4,7 +4,7 @@ import {INITIAL_STATE, addDate, addIdea, removeIdea, updateIdea} from './core';
 
 export default function reducer(state = INITIAL_STATE, action) {
   // Get index of the date
-  var indexOfDate;
+  let indexOfDate;
   if(action.date !== undefined) {
     indexOfDate = state.get('dates').findIndex((obj) => { return obj.get('date') === action.date });
   }
