@@ -4,33 +4,18 @@ import {fromJS} from 'immutable';
 
 export const INITIAL_STATE = fromJS({});
 
-export function getCurrentDate() {
-  // Find current date in mm-dd-yyyy format
-  const currentDate = new Date();
-  var day = currentDate.getDate();
-  var month = currentDate.getMonth() + 1;
-  var year = currentDate.getFullYear();
-  if(day < 10) {
-    day = '0' + day;
-  }
-  if(month < 10) {
-    month = '0' + month;
-  }
-  return month + '-' + day + '-' + year;
-}
-
-export function addDate(state) {
-  const today = getCurrentDate();
+// TODO update addDate to receive the date - currently not a pure function
+export function addDate(state, date) {
   // Create a variable for the new date
   const newDay = fromJS([
     {
-      date: today,
+      date: date,
       ideas: []
     }
   ]);
   // Add new date to the current state
   if(state.has('dates')) {
-    if(state.get('dates').includes(today)) {
+    if(state.get('dates').includes(date)) {
       throw new Error('This date already exists');
     }
     else {

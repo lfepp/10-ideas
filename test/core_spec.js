@@ -3,7 +3,7 @@
 import {fromJS} from 'immutable';
 import {expect} from 'chai';
 
-import {getCurrentDate, addDate, addIdea, removeIdea, updateIdea} from '../app/src/core';
+import {addDate, addIdea, removeIdea, updateIdea} from '../app/src/core';
 
 describe('core application logic', () => {
 
@@ -11,11 +11,11 @@ describe('core application logic', () => {
 
     it('adds a new date into a blank state tree', () => {
       const state = fromJS({});
-      const nextState = addDate(state);
+      const nextState = addDate(state, '04-26-2016');
       expect(JSON.stringify(nextState)).to.equal(JSON.stringify(fromJS({
         dates: [
           {
-            date: getCurrentDate(),
+            date: '04-26-2016',
             ideas: []
           }
         ]
@@ -35,7 +35,7 @@ describe('core application logic', () => {
           }
         ]
       });
-      const nextState = addDate(state);
+      const nextState = addDate(state, '04-26-2016');
       expect(JSON.stringify(nextState)).to.equal(JSON.stringify(fromJS({
         dates: [
           {
@@ -47,7 +47,7 @@ describe('core application logic', () => {
             ideas: ['Test idea','Test idea','Test idea']
           },
           {
-            date: getCurrentDate(),
+            date: '04-26-2016',
             ideas: []
           }
         ]
