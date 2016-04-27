@@ -1,15 +1,15 @@
 'use strict';
 
-const gulp = require('gulp');
-const sass = require('gulp-ruby-sass');
-const browserify = require('browserify');
-const source = require('vinyl-source-stream');
-const babelify = require('babelify');
-const uglify = require('gulp-uglify');
-const envify = require('envify');
-const rename = require('gulp-rename');
-const argv = require('yargs').argv;
-const gulpif = require('gulp-if');
+import gulp from 'gulp';
+import sass from 'gulp-ruby-sass';
+import browserify from 'browserify';
+import source from 'vinyl-source-stream';
+import babelify from 'babelify';
+import uglify from 'gulp-uglify';
+import envify from 'envify';
+import rename from 'gulp-rename';
+import {argv} from 'yargs';
+import gulpif from 'gulp-if';
 
 gulp.task('bundle', () => {
   const files = glob.sync('./public/src/js/**/*.js');
