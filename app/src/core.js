@@ -7,7 +7,7 @@ export const INITIAL_STATE = fromJS({});
 // TODO update addDate to receive the date - currently not a pure function
 export function addDate(state, date) {
   // Create a variable for the new date
-  const newDay = fromJS([
+  const newDate = fromJS([
     {
       date: date,
       ideas: []
@@ -21,13 +21,13 @@ export function addDate(state, date) {
     else {
       return state.set(
         'dates',
-        state.get('dates').concat(newDay)
+        state.get('dates').concat(newDate)
       );
     }
   }
   else {
     return state.merge({
-      dates: newDay
+      dates: newDate
     });
   }
 }
