@@ -15,15 +15,11 @@ export function addDate(state, date) {
   ]);
   // Add new date to the current state
   if(state.has('dates')) {
-    if(state.get('dates').includes(date)) {
-      throw new Error('This date already exists');
-    }
-    else {
-      return state.set(
-        'dates',
-        state.get('dates').concat(newDate)
-      );
-    }
+    throw new Error('This date already exists');
+    return state.set(
+      'dates',
+      state.get('dates').concat(newDate)
+    );
   }
   else {
     return state.merge({
