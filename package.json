@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- --compilers js:babel-core/register --require ./test/test_helper.js \"test/**/*@(.js|.jsx)\"",
-    "test-watch": "npm run test -- --watch"
+    "test:watch": "npm run test -- --watch",
+    "watch:bundle": "./node_moduels/.bin/watchify ./public/dist/index.js -t ./node_moduels/.bin/babelify -p ./node_moduels/.bin/livereactload -o ./public/dist/js/main.js"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,8 @@
   "homepage": "https://github.com/lfepp/10-ideas#readme",
   "dependencies": {
     "immutable": "3.8.1",
+    "react": "15.0.1",
+    "react-dom": "15.0.1",
     "redux": "3.5.2",
     "socket.io": "1.4.5"
   },
@@ -45,12 +48,25 @@
     "jsdom": "8.4.0",
     "mocha": "2.4.5",
     "vinyl-source-stream": "1.1.0",
+    "watchify": "3.7.0",
     "yargs": "4.6.0"
   },
   "babel": {
     "presets": [
       "es2015",
       "react"
-    ]
+    ],
+    "env": {
+      "development": {
+        "plugins": [
+          ["react-transform", {
+            "transforms": [{
+              "transform": "livereactload/babel-transform",
+              "imports": ["react"]
+              }]
+            }]
+        ]
+      }
+    }
   }
 }

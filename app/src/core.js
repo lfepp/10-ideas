@@ -15,7 +15,6 @@ export function addDate(state, date) {
   ]);
   // Add new date to the current state
   if(state.has('dates')) {
-    throw new Error('This date already exists');
     return state.set(
       'dates',
       state.get('dates').concat(newDate)
