@@ -16,7 +16,7 @@
     "ideas"
   ],
   "author": "Luke Epp",
-  "license": "All Rights Reserved",
+  "license": "UNLICENSED",
   "bugs": {
     "url": "https://github.com/lfepp/10-ideas/issues"
   },
@@ -38,19 +38,17 @@
     "browserify": "13.0.0",
     "chai": "3.5.0",
     "chai-immutable": "1.5.4",
-    "envify": "3.4.0",
     "glob": "7.0.3",
     "gulp": "3.9.1",
-    "gulp-if": "2.0.0",
     "gulp-rename": "1.2.2",
     "gulp-ruby-sass": "2.0.6",
+    "gulp-streamify": "1.0.2",
     "gulp-uglify": "1.5.3",
     "istanbul": "1.0.0-alpha.2",
     "jsdom": "8.4.0",
     "mocha": "2.4.5",
     "vinyl-source-stream": "1.1.0",
-    "watchify": "3.7.0",
-    "yargs": "4.6.0"
+    "watchify": "3.7.0"
   },
   "babel": {
     "presets": [

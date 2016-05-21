@@ -6,13 +6,12 @@ import browserify from 'browserify';
 import source from 'vinyl-source-stream';
 import babelify from 'babelify';
 import uglify from 'gulp-uglify';
-import envify from 'envify';
 import rename from 'gulp-rename';
-import {argv} from 'yargs';
-import gulpif from 'gulp-if';
+import glob from 'glob';
+import streamify from 'gulp-streamify';
 
 gulp.task('bundle', () => {
-  const files = glob.sync('./public/src/js/**/*.js');
+  const files = glob.sync('./public/src/**/*.js');
   return browserify({
     entries: files,
     extensions: ['.jsx'],
@@ -21,20 +20,11 @@ gulp.task('bundle', () => {
   .transform(babelify.configure({
     presets: ['es2015', 'react']
   }))
-  .pipe(gulpif(argv.env === 'development', browserify({
-    transform: envify({
-      NODE_ENV: 'development'
-    })
-  })))
-  .pipe(gulpif(argv.env === 'production', browserify({
-    transform: envify({
-      NODE_ENV: 'production'
-    })
-  })))
   .bundle()
   .pipe(source('main.js'))
-  .pipe(gulpif(argv.env === 'production', uglify()))
-  .pipe(gulpif(argv.env === 'production', rename({suffix: '.min'})))
+  .pipe(gulp.dest('./public/dist/js/'))
+  .pipe(rename({suffix: '.min'}))
+  .pipe(streamify(uglify()))
   .pipe(gulp.dest('./public/dist/js/'));
 });
 
