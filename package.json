@@ -23,6 +23,7 @@
   "homepage": "https://github.com/lfepp/10-ideas#readme",
   "dependencies": {
     "immutable": "3.8.1",
+    "jsonwebtoken": "6.2.0",
     "react": "15.0.1",
     "react-dom": "15.0.1",
     "redux": "3.5.2",
@@ -59,12 +60,19 @@
     "env": {
       "development": {
         "plugins": [
-          ["react-transform", {
-            "transforms": [{
-              "transform": "livereactload/babel-transform",
-              "imports": ["react"]
-              }]
-            }]
+          [
+            "react-transform",
+            {
+              "transforms": [
+                {
+                  "transform": "livereactload/babel-transform",
+                  "imports": [
+                    "react"
+                  ]
+                }
+              ]
+            }
+          ]
         ]
       }
     }
