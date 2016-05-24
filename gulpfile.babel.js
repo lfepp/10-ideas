@@ -17,6 +17,7 @@ gulp.task('bundle', () => {
     extensions: ['.jsx'],
     debug: true
   })
+  // babel-plugin-react-trasnform # message for air
   .transform(babelify.configure({
     presets: ['es2015', 'react']
   }))
